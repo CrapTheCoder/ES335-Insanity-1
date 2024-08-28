@@ -44,6 +44,11 @@ class DecisionTree:
         return y.mean() if self.is_real_output else y.mode().values[0]
 
     def fit(self, X: pd.DataFrame, y: pd.Series) -> None:
+        """
+        Fit the decision tree model based on the input data
+        Time complexity: O(N * M * D^2), where N is the number of samples and D is the maximum depth of the tree
+        """
+
         def build(X: pd.DataFrame, y: pd.Series, depth: int) -> Node:
             if depth >= 0:
                 best_gain, best_feature, best_threshold = utils.optimal_split(X, y, self.criterion, X.columns)
