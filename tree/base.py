@@ -46,7 +46,7 @@ class DecisionTree:
     def fit(self, X: pd.DataFrame, y: pd.Series) -> None:
         """
         Fit the decision tree model based on the input data
-        Time complexity: O(N * M * D^2), where N is the number of samples and D is the maximum depth of the tree
+        Time complexity: O(N * M * 2^D), where N is the number of samples and D is the maximum depth of the tree
         """
 
         def build(X: pd.DataFrame, y: pd.Series, depth: int) -> Node:
